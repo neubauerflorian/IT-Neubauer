@@ -1,50 +1,280 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test Website</title>
+	<title>Test Website with Animations and Fancy Design</title>
+	<style>
+		body {
+			background-color: #f0f0f0;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.menu {
+			background-color: #f8f8f8;
+			border-bottom: 1px solid #ccc;
+			height: 50px;
+			line-height: 50px;
+			padding: 0 20px;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+		}
+		
+		.menu ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.menu li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+		
+		.menu a {
+			color: #333;
+			font-size: 16px;
+			font-weight: bold;
+			text-decoration: none;
+			transition: color 0.2s ease-in-out;
+		}
+		
+		.menu a:hover {
+			color: #666;
+		}
+		
+		.slider {
+			background-color: #fff;
+			height: 500px;
+			position: relative;
+		}
+		
+		.slider .slide {
+			display: none;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 0;
+		}
+		
+		.slider .slide.active {
+			display: block;
+			z-index: 1;
+		}
+		
+		.slider .slide img {
+			height: 500px;
+			object-fit: cover;
+			width: 100%;
+		}
+		
+		.slider .slide-content {
+			bottom: 0;
+			color: #fff;
+			left: 50%;
+			position: absolute;
+			text-align: center;
+			transform: translate(-50%, 0);
+			width: 100%;
+		}
+		
+		.slider .slide-content h1 {
+			font-size: 48px;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.slider .slide-content p {
+			font-size: 24px;
+			margin: 20px 0;
+			padding: 0;
+		}
+		
+		.slider .slide-nav {
+			bottom: 20px;
+			position: absolute;
+			right: 20px;
+		}
+		
+		.slider .slide-nav button {
+			background-color: #333;
+			border: none;
+			border-radius: 50%;
+			color: #fff;
+			cursor: pointer;
+			height: 20px;
+			margin-right: 10px;
+			transition: background-color 0.2s ease-in-out;
+			width: 20px;
+		}
+		
+		.slider .slide-nav button.active {
+			background-color: #fff;
+			color: #333;
+		}
+		
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	
+	@keyframes slideInRight {
+		from {
+			transform: translateX(100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+	
+	@keyframes slideOutLeft {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-100%);
+		}
+	}
+	
+	@keyframes slideInLeft {
+		from {
+			transform: translateX(-100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+	
+	@keyframes slideOutRight {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(100%);
+		}
+	}
+	
+	.slide-fade {
+		animation: fadeIn 1s ease-in-out;
+	}
+	
+	.slide-in-right {
+		animation: slideInRight 1s ease-in-out;
+	}
+	
+	.slide-out-left {
+		animation: slideOutLeft 1s ease-in-out;
+	}
+	
+	.slide-in-left {
+		animation: slideInLeft 1s ease-in-out;
+	}
+	
+	.slide-out-right {
+		animation: slideOutRight 1s ease-in-out;
+	}
+	
+</style>
 </head>
 <body>
-	<header>
-		<h1>Welcome to my Test Website</h1>
-	</header>
-	<nav>
+	<div class="header">
+		<h1>Test Website with Animations and Fancy Design</h1>
+	</div>
+	<div class="menu">
 		<ul>
-			<li><a href="#about">About</a></li>
-			<li><a href="#services">Services</a></li>
-			<li><a href="#contact">Contact</a></li>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Contact</a></li>
 		</ul>
-	</nav>
-	<main>
-		<section id="about">
-			<h2>About Us</h2>
-			<p>We are a small company that specializes in providing quality products and services to our customers.</p>
-		</section>
-		<section id="services">
-			<h2>Our Services</h2>
-			<ul>
-				<li>Product A</li>
-				<li>Product B</li>
-				<li>Product C</li>
-			</ul>
-		</section>
-		<section id="contact">
-			<h2>Contact Us</h2>
-			<form>
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name"><br>
-
-				<label for="email">Email:</label>
-				<input type="email" id="email" name="email"><br>
-
-				<label for="message">Message:</label>
-				<textarea id="message" name="message"></textarea><br>
-
-				<input type="submit" value="Submit">
-			</form>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2023 Test Website. All rights reserved.</p>
-	</footer>
-</body>
-</html>
+	</div>
+	<div class="slider">
+		<div class="slide active slide-fade">
+			<img src="https://via.placeholder.com/1920x500" alt="Slide 1">
+			<div class="slide-content">
+				<h1>Slide 1</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="slide-nav">
+				<button class="active"></button>
+				<button></button>
+				<button></button>
+			</div>
+		</div>
+		<div class="slide slide-in-right slide-out-left">
+			<img src="https://via.placeholder.com/1920x500" alt="Slide 2">
+			<div class="slide-content">
+				<h1>Slide 2</h1>
+				<p>Nullam ut sapien nec nulla sodales vestibulum.</p>
+			</div>
+			<div class="slide-nav">
+				<button></button>
+				<button class="active"></button>
+				<button></button>
+			</div>
+		</div>
+		<div class="slide slide-in-right slide-out-left">
+			<img src="https://via.placeholder.com/1920x500" alt="Slide 3">
+			<div class="slide-content">
+				<h1>Slide 3</h1>
+				<p>Sed vel magna dignissim, fringilla orci id, aliquet lorem.</p>
+			</div>
+			<div class="slide-nav">
+				<button></button>
+				<button></button>
+				<button class="active"></button>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="section section1">
+		<h2>Section 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec velit at ipsum pretium posuere eu a quam. Nullam ut sapien nec nulla sodales vestibulum. Nunc id malesuada tellus. Ut suscipit, quam eget venenatis auctor, nulla mi dictum lectus, nec malesuada sapien odio eu ipsum. Aliquam ac nibh vel orci lobortis pulvinar eget eget odio. Sed vel magna dignissim, fringilla orci id, aliquet lorem.</p>
+	</div>
+	<div class="section section2">
+		<h2>Section 2</h2>
+		<p>Donec vitae elit elit. Pellentesque convallis massa velit, vel fringilla neque fringilla eu. Phasellus sed vestibulum felis. Nulla sagittis magna et pharetra porttitor. Quisque fringilla aliquet sem a auctor. Maecenas ut enim eros. Vivamus gravida, ex nec congue facilisis, augue tortor venenatis ante, vel faucibus arcu tellus vitae massa. Nullam eget neque ut sapien euismod hendrerit non ac velit.</p>
+	</div>
+	<div class="section section3">
+		<h2>Section 3</h2>
+		<p>Suspendisse potenti. Nam vehicula dapibus mi, eget faucibus metus dignissim sit amet. Aenean vehicula tristique mauris, vel bibendum mauris mattis eu. Fusce bibendum, odio at rutrum scelerisque, magna enim consectetur mi, non rhoncus nunc purus nec purus. Nam in dictum augue. Vestibulum ac lacus sed quam placerat imperdiet ac sed turpis. Donec pretium tortor in metus pretium, sit amet bibendum arcu imperdiet.</p>
+	</div>
+</div>
+<div class="cta">
+	<h2>Call to Action</h2>
+	<p>Aliquam ac nibh vel orci lobortis pulvinar eget eget odio. Sed vel magna dignissim, fringilla orci id, aliquet lorem. Nullam eget neque ut sapien euismod hendrerit non ac velit.</p>
+	<a href="#" class="btn">Learn More</a>
+</div>
+<footer>
+	<div class="footer-content">
+		<div class="logo">
+			<h2>Test Website</h2>
+		</div>
+		<div class="social-icons">
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-linkedin"></i></a>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; 2023 Test Website. All Rights Reserved.</p>
+	</div>
+</footer>
+	</body>
+</html> 
