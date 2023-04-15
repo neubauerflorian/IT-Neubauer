@@ -1,31 +1,199 @@
-
-
-```html
-<!DOCTYPE html>
 <html>
 <head>
-<style>
-button {
-  font-size: 20px;
-  padding: 10px 20px;
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            padding: 10px 20px;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu li:hover {
+            background-color: #555;
+        }
+
+        .banner {
+            background-image: url("https://source.unsplash.com/random/1200x600");
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner h1 {
+            color: white;
+            font-size: 64px;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .content {
+            padding: 40px 20px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer p {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                transition: left 0.3s ease-in-out; 
+                background-color:#333; 
+                z-index :1;}
+
+.menu li {
+    width :100%;
+    text-align :center; 
+}
+
+.menu li:hover {
+    background-color :#555; 
+}
+
+.menu-toggle {
+    display :block; 
+    position :absolute; 
+    right :20px; 
+    top :20px; 
+    width :40px; 
+    height :40px; 
+    cursor :pointer; 
+    z-index :2; 
+}
+
+.menu-toggle span {
+    display :block; 
+    width :100%; 
+    height :4px; 
+    background-color :white; 
+    margin-bottom :4px; 
+}
+
+.menu-toggle span:last-child {
+    margin-bottom :0; 
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform :rotate(45deg) translate(8px,8px); 
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity :0; 
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform :rotate(-45deg) translate(8px,-8px); 
+}
+
+.banner h1 {
+    font-size :48px; 
+}
 }
 </style>
 </head>
 <body>
-
-<h2>Interactive Website</h2>
-
-<button onclick="myFunction()">Click me</button>
-
-<p id="demo"></p>
-
+<div class="container">
+<div class="header">
+<div class="logo">Example Website</div>
+<ul class="menu">
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+<div class="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div class="banner">
+<h1>Welcome to our website</h1>
+</div>
+<div class="content">
+<h2>About us</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis leo quis lorem aliquet tincidunt. Morbi vitae nisl id nisi lacinia mattis. Fusce auctor augue quis neque sagittis, ac ullamcorper nisl sagittis. Donec vitae felis eu justo malesuada blandit. Quisque sit amet leo id eros ultrices vulputate. Curabitur quis mauris in leo luctus consequat. Phasellus vitae lectus at nisi tincidunt fringilla.</p>
+<h2>Our services</h2>
+<p>Aliquam erat volutpat. Suspendisse potenti. Mauris sed augue ut lorem consequat ultricies. Praesent euismod lacus quis magna dictum, sit amet tincidunt nisi vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed id semper sapien. Cras id urna eget augue sagittis fermentum.</p>
+<h2>Contact us</h2>
+<p>Etiam quis nunc ut ante sollicitudin lacinia. In hac habitasse platea dictumst. Proin euismod justo at lacus aliquam, non ullamcorper leo cursus. Duis vel risus auctor, tincidunt arcu vitae, consequat eros. Maecenas vitae tellus in quam aliquet condimentum.</p>
+</div>
+<div class="footer">
+<p>&copy; 2023 Example Website. All rights reserved.</p>
+</div>
+</div>
 <script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello World!";
-}
-</script>
+    // Get the menu toggle element
+    var menuToggle = document.querySelector(".menu-toggle");
 
+    // Get the menu element
+    var menu = document.querySelector(".menu");
+
+    // Add a click event listener to the menu toggle element
+    menuToggle.addEventListener("click", function() {
+        // Toggle the active class on both the menu and the menu toggle elements
+        menu.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    });
+</script>
 </body>
 </html>
-```
-
