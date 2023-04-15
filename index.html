@@ -1,85 +1,31 @@
+
+
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>My Website</title>
-	<link rel="stylesheet" href="style.css">
+<style>
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+}
+</style>
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section>
-			<h1>Welcome to My Website</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel elit id quam accumsan feugiat.</p>
-			<button id="btn">Learn More</button>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2023 My Website. All Rights Reserved.</p>
-	</footer>
-	<script src="script.js"></script>
+
+<h2>Interactive Website</h2>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World!";
+}
+</script>
+
 </body>
 </html>
-header {
-  background-color: #333;
-  color: #fff;
-  height: 60px;
-  nav {
-    ul {
-      display: flex;
-      li {
-        margin-right: 20px;
-        a {
-          color: #fff;
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-}
+```
 
-main {
-  section {
-    text-align: center;
-    padding: 50px;
-    background-color: #f2f2f2;
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      margin-bottom: 40px;
-    }
-    button {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px;
-      cursor: pointer;
-      &:hover {
-        background-color: #555;
-      }
-    }
-  }
-}
-
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
